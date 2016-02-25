@@ -1,6 +1,8 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/lasarobotics/ftcvision/img/logo.png?raw=true" alt="FTC-Sees!"/>
 </p>
+This is a fork of the FTCVision project. For the original project see here.
+https://github.com/lasarobotics/FTCVision
 
 # FTC Vision Library [![Build Status](https://travis-ci.org/lasarobotics/FTCVision.svg?branch=master)](https://travis-ci.org/lasarobotics/FTCVision) [![Documentation Status](https://img.shields.io/badge/documentation-0.9.0%20(up%20to%20date)-blue.svg)](http://ftcvision.lasarobotics.org)
 Computer Vision library for FTC based on OpenCV, featuring **beacon color and position detection**, as well as an easy-to-use `VisionOpMode` format and many additional detection features planned in the future.
