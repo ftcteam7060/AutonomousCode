@@ -34,7 +34,6 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 import com.qualcomm.ftcrobotcontroller.autonomouslibs.RobotStates;
 import com.qualcomm.robotcore.hardware.*;
 import com.qualcomm.ftcrobotcontroller.autonomouslibs.*;
-import com.qualcomm.robotcore.robot.Robot;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 

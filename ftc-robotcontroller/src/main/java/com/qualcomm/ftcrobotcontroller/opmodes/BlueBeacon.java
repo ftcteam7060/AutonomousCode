@@ -125,12 +125,12 @@ public class BlueBeacon extends VisionOpMode {
     };
 
     final PathSeg[] mBeaconPath = {
-            new PathSeg(  1.0,    1.0,    0.3),
-            new PathSeg( 11.0,    0.0,   0.3),
-            new PathSeg( 83.0,    83.0,   0.4),
-            new PathSeg(  0.0,     0.0,   0.0),
-            new PathSeg( 10.0,    -10.0,   0.3),
-            new PathSeg( 30.0,    30.0,   0.3),
+            new PathSeg(  1.0,    1.0,    0.3), //initial movement to get away from wall
+            new PathSeg( 11.0,    0.0,   0.3), //initial turn toward beacon
+            new PathSeg( 83.0,    83.0,   0.4), //straight-line distance to beacon
+            new PathSeg(  0.0,     0.0,   0.0), //pause
+            new PathSeg( 10.0,    -10.0,   0.3), //final turn to center on beacon
+            new PathSeg( 28.0,    28.0,   0.3), //final movement to beacon (before depositing climbers
             //centers on beacon
             //new PathSeg(-34.0,   -34.0,   0.3),  // Changed from 28 to 34 inches
             //new PathSeg( 13.0,     0.0,   0.3),

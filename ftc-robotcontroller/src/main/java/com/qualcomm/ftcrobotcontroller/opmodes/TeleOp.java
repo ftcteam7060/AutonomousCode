@@ -16,16 +16,11 @@ public class TeleOp extends OpMode {
     // This is the previous value of the gamepad 1's x button.
     boolean prevGamepad1X = false;
     boolean prevGamepad2B = false;
-    double shoulderPos = 0;
-    double elbowPos = 0;
-    double wristPos = 0;
     boolean toggleFront = false;
-    //DcMotor debris_motor;
-    // TODO Servo
     Servo climberArm;
-//    Servo shoulderServo;
-//    Servo elbowServo;
-//    Servo wristServo;
+    Servo leftWing;
+    Servo rightWing;
+
     DcMotor right_drive;
     DcMotor left_drive;
     DcMotor tread_drive;
@@ -54,10 +49,8 @@ public class TeleOp extends OpMode {
         winch = hardwareMap.dcMotor.get("winch");
 //        secondWinch = hardwareMap.dcMotor.get("second_winch");
         climberArm = hardwareMap.servo.get("climber_arm");
-        // TODO Servo
-//        shoulderServo = hardwareMap.servo.get("shoulder_servo");
-//        elbowServo = hardwareMap.servo.get("elbow_servo");
-//        wristServo = hardwareMap.servo.get("wrist_servo");
+        leftWing = hardwareMap.servo.get("left_wing");
+        rightWing = hardwareMap.servo.get("right_wing");
         right_drive = hardwareMap.dcMotor.get("right_drive");
         left_drive = hardwareMap.dcMotor.get("left_drive");
         tread_drive = hardwareMap.dcMotor.get("tread_drive");
@@ -104,7 +97,7 @@ public class TeleOp extends OpMode {
         }
 
 
-
+        controlWingsWithTriggers();
 //        controlPickupArmWithTriggers();
 //        controlPickupArmWithJoysticks();
 
@@ -196,6 +189,19 @@ public class TeleOp extends OpMode {
         }
         return value;
     }
+
+    void controlWingsWithTriggers() {
+        // Read the gamepad triggers.
+        double rightWingPos = gamepad2.right_trigger / 1.75;
+        double leftWingPos  = (-gamepad2.left_trigger / 1.75) + 1;
+        // Clamp the joint position between 0 and 1
+        leftWingPos = clamp(leftWingPos, 0.0, 1.0);
+        rightWingPos = clamp(rightWingPos, 0.0, 1.0);
+        // Set the servo position.
+        leftWing.setPosition(leftWingPos);
+        rightWing.setPosition(rightWingPos);
+    }
+
     // TODO Servo
 //    void controlPickupArmWithTriggers() {
 //        // Use the B button to toggle which arm joint is being moved.
